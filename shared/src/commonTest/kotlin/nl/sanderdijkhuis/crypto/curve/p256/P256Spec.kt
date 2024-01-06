@@ -10,7 +10,8 @@ class P256Spec {
     fun `sign and verify`() {
         val key = generate()
         val message = "Hello, World!".encodeToByteArray()
-        val signature = key.ecdsa(message.sha256())
-        assertTrue { signature.isEcdsa(message.sha256(), key.verifier()) }
+        val digest = sequenceOf(message).sha256()
+        val signature = key.ecdsa(digest)
+        assertTrue { signature.isEcdsa(digest, key.verifier()) }
     }
 }

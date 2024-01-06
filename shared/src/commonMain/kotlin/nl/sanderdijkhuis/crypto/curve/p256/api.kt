@@ -1,3 +1,5 @@
+@file:Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
+
 package nl.sanderdijkhuis.crypto.curve.p256
 
 import nl.sanderdijkhuis.crypto.hash.sha2.Sha256Digest
