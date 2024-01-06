@@ -20,14 +20,14 @@ actual fun Signer.ecdsa(
     digest: Sha256Digest
 ): Signature = signature.run {
     initSign(pair.private)
-    update(digest.value)
+    update(digest.bytes)
     sign()
 }.let { Signature(it) }
 
 actual fun Signature.isEcdsa(digest: Sha256Digest, key: Verifier): Boolean =
     signature.run {
         initVerify(key.value)
-        update(digest.value)
+        update(digest.bytes)
         verify(value)
     }
 
